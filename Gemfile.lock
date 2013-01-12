@@ -1,0 +1,34 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.2.8)
+    allison (2.0.3)
+    crack (0.1.6)
+    faraday (0.8.1)
+      multipart-post (~> 1.1)
+    google_calendar (0.2.3)
+      addressable (>= 2.2.2)
+      nokogiri (>= 1.4.4)
+    hashie (0.4.0)
+    httparty (0.5.2)
+      crack (= 0.1.6)
+    multi_json (1.3.6)
+    multipart-post (1.1.5)
+    nokogiri (1.5.6)
+    simple_oauth (0.1.8)
+    twitter (4.3.0)
+      faraday (~> 0.8)
+      multi_json (~> 1.3)
+      simple_oauth (~> 0.1.6)
+    url_shortener (0.0.7)
+      hashie (~> 0.4.0)
+      httparty (~> 0.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  allison
+  google_calendar
+  twitter
+  url_shortener
