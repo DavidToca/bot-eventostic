@@ -14,6 +14,7 @@ require_relative  'rss_helper.rb'
 
 class Bot
 
+  #the config file
   CONFIG_FILE = "config.yaml"
 
   ##
@@ -161,7 +162,9 @@ class Bot
     @logger.info("#{'*'*5}Tweet task executed#{'*'*5}")
   end
 
-
+  ##
+  # tweet an upcoming event
+  #
   def tweet_event(event, date)
 
     title_max_len = 45

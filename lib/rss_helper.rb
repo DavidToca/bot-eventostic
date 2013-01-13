@@ -8,9 +8,14 @@ require 'logger'
 require 'time'
 
 
-
+##
+#
+#
 class Rss_helper
 
+##
+# fetchs the events of the feed
+#
 def self.fetch_events(rss_feed)
 
   logger = Logger.new(STDOUT)
@@ -67,10 +72,20 @@ events
 
 end
 
+private
+
+##
+# validates whenever the given string is a valid date
+#
 def self.valid_date?( str )
   DateTime.strptime(str,'%A, %B %j at %I:%M %p') rescue false
 end
 
+
+
+##
+# Get the date out of the paragraphs
+#
 def self.get_date(paragraphs)
 
   paragraphs.reverse.each do |line|
