@@ -1,3 +1,4 @@
+
 # encoding: UTF-8
 
 
@@ -15,28 +16,24 @@ require_relative  'rss_helper.rb'
 class Bot
 
   #the config file
-  CONFIG_FILE = "config.yaml"
+  CONFIG_FILE_DEFAULT = "config.yaml"
 
   ##
   # initialize the robot with a given config file ( or CONFIG_FILE otherwise)
   #
 
-  def initialize(config_file_name=CONFIG_FILE)
+  def initialize(config_file=CONFIG_FILE_DEFAULT)
 
     @logger = Logger.new(STDOUT)
 
+    url_file = (config_file == CONFIG_FILE_DEFAULT) ? File.join(File.dirname(__FILE__),CONFIG_FILE_DEFAULT) : config_file
 
-    @config = YAML.load_file(File.join(File.dirname(__FILE__),config_file_name))
+    @config = YAML::load_file(url_file)
 
     #twitter configuration
     config_twitter = @config['twitter']
 
-    consumer_key = config_twitter['CONSUMER_KEY']
-    consumer_secret = config_twitter['CONSUMER_SECRET']
-    oauth_token = config_twitter['OAUTH_TOKEN']
-    oauth_token_secret = config_twitter['OAUTH_TOKEN_SECRET']
-
-    @twitter = Twitter_helper.new(consumer_key,consumer_secret,oauth_token,oauth_token_secret)
+    @twitter = Twitter_helper.new(config_twitter)
 
 
     #google calendar configuration
@@ -112,9 +109,7 @@ class Bot
 
       events.each do |event|
 
-
       tweet_event(event,today)
-
 
      end
 
@@ -353,6 +348,14 @@ class Bot
 
 
 end
+
+
+
+
+
+
+
+
 
 
 

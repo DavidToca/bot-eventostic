@@ -14,7 +14,13 @@ class Twitter_helper
   ##
   # Initialize an object with oauth parameters
   #
-  def initialize(consumer_key, consumer_secret, oauth_token, oauth_token_secret)
+  def initialize(params)
+
+    consumer_key = params['CONSUMER_KEY']
+    consumer_secret = params['CONSUMER_SECRET']
+    oauth_token = params['OAUTH_TOKEN']
+    oauth_token_secret = params['OAUTH_TOKEN_SECRET']
+
 
      Twitter.configure do |config|
       config.consumer_key = consumer_key
