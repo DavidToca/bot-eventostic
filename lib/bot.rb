@@ -132,7 +132,7 @@ class Bot
       events.each do |event|
 
 
-      tweet_event(event,today)
+      tweet_event(event,tomorrow)
 
 
      end
@@ -220,7 +220,7 @@ class Bot
   #
   def in_calendar(event)
 
-    @cal.events.select{|e| e.title == event.title}.length > 0
+    @cal.events.select{|e| e.title == event.title.strip}.length > 0
 
 
   end
